@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Photo Gallery</title>
+	
+</head>
+<body onload = "loadFruits()">
+<button onclick = "myFunction()">Add Your Favorite!</button>
+
+<p id = "fruits"></p>
+
+<script>
+var fruits = ['banana', 'apple', 'orange', 'mango'];
+
+function loadFruits(){
+    document.getElementById("fruits").innerHTML = fruits;
+}
+
+function myFunction(){
+    var fruit = prompt("what's your favorite fruit?");
+    fruits[fruits.length] = fruit;
+    document.getElementById("fruits").innerHTML = fruits;
+}
+
+</script>
+
+
+</body>

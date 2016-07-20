@@ -1,0 +1,125 @@
+<!DOCTYPE html><html lang="en">
+ <head>
+  <meta charset="UTF-8">
+    <title>Shipping and Billing</title>
+    <style>
+        input{
+          border:1px solid black;
+	}
+        input:focus{
+	   background-color: #E6E6E6;
+        }
+	fieldset{
+ 	   margin-bottom: 4%;
+	}
+    </style>
+  </head>
+  <body>
+	<h1>JavaScript Homework</h1>
+        <p>Add the JavaScript code needed to enable auto-complete on this form.  Whenever the checkbox is checked, the code should automatically copy the values from Shipping Name and Shipping Zip into the Billing Name and Billing Zip.  If the checkbox is unchecked, the Billing Name and Billing Zip should go blank.</p>
+
+		<form>
+        <fieldset>
+	  <legend>Shipping Information</legend>
+    <label for ="shippingName">Name:</label>
+    <input type = "textfield" name = "Name" id = "shippingName" required><br/><br/>
+
+	  <label for = "shippingzip">Zip code:</label>
+    <input type = "text" name = "zip" id = "shippingZip" pattern = "[0-9]{5}" required><br/><br/>
+
+    <label>Email:<input type="email" id = "email" name="email" placeholder="me@mail"></label><br/><br/>
+
+    <label for = "shippingaddress">Address:</label>
+    <input type = required type="textfield" name = "shippingaddress" id = "shippingAddress"><br/><br/>
+
+    <label for = "shippingphone">Phone Number:</label>
+    <input type = required type = "textfield" name = "shippingphone" id = "shippingphone" pattern="[0-9]{10}" placeholder="000-000-0000"><br/><br/>
+
+    <label for='birth'>Birth</label>
+    <input type='date' id = 'birth' value = 'birth'><br/><br/>
+
+    <label for='password1'>Password:<input required type='password' id='password1' name='password1' /><br/><br/>
+    <label for='password2'>Retype Password:<input required type='password' id='password2' name='password2' onchange="check()"/>
+    </label><span id='pw-alert'></span><br/><br/>
+
+    <h4>Breakfast menu</h4>
+    <label for="food">
+      <input type="checkbox" id="box1" name="food" value="chicken paninis"/>Chicken Paninis</label><br/>
+    <label for="food">
+      <input type="checkbox" id="box2" name="food" value="Egg &amp; Cheese Croissant"/>Egg &amp; Cheese Croissant</label><br/>
+    <label for="food">
+      <input type="checkbox" id="box3" name="food" value="Gourmet"/>Gourmet Oatmeal</label><br/>
+
+
+    <h4>Daily Service: I want the same sevice everyday!</h4>
+    <label for = "radio1">
+      <input type="radio" id = "radio1" name="radio1" value="Yes">Yes
+    <label for = "radio2">
+      <input type="radio" id = "radio2" name="radio2" value="No">No
+      <br/><br/>
+
+    <input type="submit" id="submit" name="submit" value="Submit" onclick="return check();" />
+
+        </fieldset>
+	<input type="checkbox" id="same" name="same" onchange= "billingFunction()"/>
+        <label for = "same">Is the Billing Information the Same?</label>
+        <fieldset>
+
+<script>
+  function check(){
+    var password1 = document.getElementById("password1");
+    var password2 = document.getElementById('password2');
+    if (password1.value != password2.value){
+      document.getElementById('pw-alert').innerHTML = "The passwords don't match."
+        return false;
+    }
+    }
+  function billingFunction(){
+    var shippingName = document.getElementById('shippingName')
+    var billingName = document.getElementById('billingName')
+
+    var shippingzip = document.getElementById('shippingzip')
+    var billingzip = document.getElementById('billingzip')
+
+    var shippingaddress = document.getElementById('shippingAddress')
+    var billingaddress = document.getElementById('billingAddress')
+
+    var shippingphone = document.getElementById('shippingphone')
+    var billingphone = document.getElementById('billingphone')
+
+    var x = document.getElementById('same').checked;
+
+
+    if(x == true){
+      document.getElementById('billingName').value = document.getElementById('shippingName').value
+      billingZip.value = shippingZip.value
+      billingAddress.value = shippingAddress.value
+      billingphone.value = shippingphone.value
+     }else{
+      document.getElementById('billingName').value = "";
+      document.getElementById('billingZip').value = "";
+      document.getElementById('billingAddress').value = "";
+      document.getElementById('billingphone').value = "";
+    }
+  }
+
+</script>
+ 	  <legend>Billing Information</legend>
+    <label for ="billingName">Name:</label>
+    <input type = "text" name = "Name" id = "billingName" required><br/><br/>
+
+    <label for = "billingzip">Zip code:</label>
+    <input type = "text" name = "zip" id = "billingZip" pattern = "[0-9]{5}" required><br/><br/>
+
+    <label for = "billingaddress">Address:</label>
+    <input type = required type="textfield" name = "billingaddress" id = "billingAddress"><br/><br/>
+
+    <label for = "billingphone">Phone Number:</label>
+    <input type = required type = "textfield" name = "billingphone" id = "billingphone" pattern="[0-9]{10}" placeholder="000-000-0000"><br/><br/>
+
+	</fieldset>
+
+	<input type = "submit" value = "Verify"/>
+    </form>
+  </body>
+</html>
